@@ -25,7 +25,7 @@ spec:
         app: firstapp
     spec:
       containers:
-      - name: firstapp
+      - name: webapp
         image: paulbouwer/hello-kubernetes:1.7
         ports:
         - containerPort: 8080
