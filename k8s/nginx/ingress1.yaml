@@ -13,6 +13,6 @@ spec:
           serviceName: firstapp
           servicePort: 80
       - path: /second
-         backend:
+        backend:
           serviceName: secondapp
           servicePort: 80
