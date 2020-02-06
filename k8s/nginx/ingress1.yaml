@@ -4,16 +4,20 @@ metadata:
   name: nginx-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /first
+      - path: /(.*)
         backend:
           serviceName: firstapp
           servicePort: 80
-      - path: /second
+      - path: /first(.*)
+        backend:
+          serviceName: firstapp
+          servicePort: 80
+      - path: /second(.*)
         backend:
           serviceName: secondapp
           servicePort: 80
