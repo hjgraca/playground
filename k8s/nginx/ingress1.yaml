@@ -8,11 +8,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /first
-        backend:
+      - backend:
           serviceName: firstapp
           servicePort: 80
-      - path: /second
-        backend:
+        path: /first
+      - backend:
           serviceName: secondapp
           servicePort: 80
+        path: /second
