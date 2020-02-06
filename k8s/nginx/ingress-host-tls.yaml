@@ -8,18 +8,18 @@ metadata:
 spec:
   tls:
   - hosts:
-    - api.myapp.com
-    - demo.myapp.com
+    - api.hegraca-org.com
+    - demo.hegraca-org.com
     secretName: myapp-tls
   rules:
-  - host: api.myapp.com
+  - host: api.hegraca-org.com
     http:
       paths:
       - path: /
         backend:
           serviceName: firstapp
           servicePort: 80
-  - host: demo.myapp.com
+  - host: demo.hegraca-org.com
     http:
       paths:
       - path: /
