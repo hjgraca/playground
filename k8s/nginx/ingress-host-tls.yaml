@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/issuer: "letsencrypt-staging"
+spec:
+  tls:
+  - hosts:
+    - api.myapp.com
+    - demo.myapp.com
+    secretName: myapp-tls
+  rules:
+  - host: api.myapp.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: firstapp
+          servicePort: 80
+  - host: demo.myapp.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: secondapp
+          servicePort: 80
